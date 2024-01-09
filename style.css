@@ -6,19 +6,33 @@ body, html{
     display: grid;
     height: 100vh;
     width: 100vw;
-    grid-template-rows: 1.5fr 1fr 5fr 1fr;
+    grid-template-rows: 2fr 1fr 5fr;
     box-shadow: 13px black;
+    grid-auto-flow: column;
+    gap: 20px;
+    background-color: #f1f5f9;
 }
 
 .title {
+    background-color: white;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    height: 110px;
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    font-weight: bolder;
+    text-shadow: 1px 1px gray;
+    font-style: italic;
+    box-shadow: 0px 3px 3px gray;
 }
 
-.bkAddButton {
+.bkAddBtn {
     display: flex;
     justify-content: center;
     align-items: end;
+    height: 50px;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     background-color: #f1f5f9;
@@ -34,7 +48,7 @@ body, html{
 }
 
 .submitButton:hover {
-    background-color: gray;
+    background-color: rgb(214, 214, 214);
 }
 
 .contentBody{
@@ -43,7 +57,57 @@ body, html{
     background-color: #f1f5f9;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(auto-fill, 184px);
+    grid-template-rows: repeat(auto-fill, 250px);
+    gap: 20px;
+}
+
+.bkCard {
+    display: grid;
+    background-color: white;
+    box-shadow: 1px 1px  2px gray;
+    justify-content: center;
+    padding: 30px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    width: 75%;
+    justify-self: center;
+}
+.bookName {
+    grid-column: 1 / 5;
+    justify-self: center;
+}
+
+.authorName {
+    grid-column: 1 / 5;
+    justify-self: center;
+}
+
+.pages {
+    grid-column: 1 / 5;
+    justify-self: center;
+}
+
+.state {
+    display: flex;
+    grid-column: 1 / 5;
+    background-color: rgb(109, 204, 109);
+    color: white;
+    width: 99.44%;
+    border: 1px solid black;
+    height: 100%;
+    justify-content: center;
+    align-items: center;   
+}
+
+.state:hover {
+    background-color: red;
+}
+
+.rmBtn {
+    grid-column: 1 / 5;
+    justify-self: center;
+    width: 100%;
+    height: 40px;
 }
 
 footer {
@@ -52,4 +116,9 @@ footer {
     background-color: hotpink;
 }
 
+dialog {
+    
+    width: 400px;
+    height: 200px;
+}
 

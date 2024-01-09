@@ -21,3 +21,15 @@ function addArray () {
     const book = new Book(Name, author, pages, readOrNot);
     array.push(book)
 };
+
+const showDialogBtn = document.querySelector(".submitButton");
+const closeButton = document.querySelector("dialog > button")
+const dialog = document.querySelector("dialog")
+
+showDialogBtn.addEventListener("click", () => {
+    dialog.showModal()
+})
+
+closeButton.addEventListener("click", () => {
+    dialog.close()
+})
