@@ -12,11 +12,14 @@
         <header class="title">Atlas Library</header>
         <div class="bkAddBtn">
             <dialog>
-                <input type="text">
-                <input type="text">
-                <input type="number">
-                <label for="readUnread">Have You Read The Book?<input type="checkbox" id="readUnread"></label>
-                <button>Close</button>
+                <form method="dialog">
+                    <caption>Add New Book</caption>
+                    <input type="text" placeholder="Book">
+                    <input type="text" placeholder="Author">
+                    <input type="number" placeholder="Pages">
+                    <label for="readUnread">Have You Read The Book?<input type="checkbox" id="readUnread"></label>
+                    <button type="submit" id="popUpBtn">Close</button>
+                </form>
             </dialog>
             <button class="submitButton">Add</button>
         </div>

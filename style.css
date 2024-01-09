@@ -116,9 +116,27 @@ footer {
     background-color: hotpink;
 }
 
-dialog {
-    
-    width: 400px;
-    height: 200px;
+form {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 360px;
+    gap: 30px;
 }
 
+#popUpBtn {
+    height: 30px;
+}
+
+input {
+    height: 35px;
+}
+
+dialog {
+    border: none;
+}
+
+dialog::backdrop {
+    background-color: black;
+    opacity: .7;
+}
