@@ -6,7 +6,7 @@ body, html{
     display: grid;
     height: 100vh;
     width: 100vw;
-    grid-template-rows: 2fr 1fr 5fr;
+    grid-template-rows: 1fr .5fr 5fr;
     box-shadow: 13px black;
     grid-auto-flow: column;
     gap: 20px;
@@ -99,9 +99,7 @@ body, html{
     align-items: center;   
 }
 
-.state:hover {
-    background-color: red;
-}
+
 
 .rmBtn {
     grid-column: 1 / 5;
@@ -117,15 +115,15 @@ footer {
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     width: 250px;
     height: 360px;
-    gap: 30px;
+    gap: 5px;
 }
 
-#popUpBtn {
+#submitBtn {
     height: 30px;
+    background-color: rgb(109, 204, 109);
 }
 
 input {
