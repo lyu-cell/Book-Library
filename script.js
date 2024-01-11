@@ -34,7 +34,7 @@ function makeCd () {
     const bkName = document.createElement("div");
     const authorName = document.createElement("div");
     const pages = document.createElement("div");
-    const state = document.createElement("div");
+    const state = document.createElement("button");
     const rmBtn = document.createElement("button");
  //   let indexObj = null;
 
@@ -72,6 +72,29 @@ function makeCd () {
         } 
         library.splice(findElObj(), 1)
         contentBody.removeChild(bkcard)
+    })
+
+    state.addEventListener("click", () => {
+        if (state.textContent === "Read") {
+            state.textContent = "Unread";
+            state.style.cssText = "background-color: red;";
+        }
+        else if (state.textContent === "Unread") {
+            state.textContent = "Read";
+            state.style.cssText = "background-color: rgb(109, 204, 109);"
+        }
+
+        for (let i = 0; i < library.length; i++) {
+            if (library[i].name === bkName.textContent && library[i].author === authorName.textContent && 
+                library[i].page === pages.textContent && library[i].state === "Unread") {
+                    library[i].state = "Read";
+                } 
+            else if (library[i].name === bkName.textContent && library[i].author === authorName.textContent && 
+                library[i].page === pages.textContent && library[i].state === "Read") {
+                    library[i].state = "Unread";
+                }
+        }
+        
         
     })
 }
@@ -127,4 +150,17 @@ const bkCard = document.querySelector(".bkCard")
 const rmBtn  = document.querySelector('.rmBtn');
 rmBtn.addEventListener("click", () => {
     contentBody.removeChild(bkCard)
+})
+
+const state = document.querySelector(".state");
+
+state.addEventListener("click", () => {
+    if (state.textContent === "Read") {
+        state.textContent = "Unread";
+        state.style.cssText = "background-color: red;";
+    }
+    else if (state.textContent === "Unread") {
+        state.textContent = "Read";
+        state.style.cssText = "background-color: rgb(109, 204, 109);"
+    }
 })
