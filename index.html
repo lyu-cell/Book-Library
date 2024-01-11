@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,10 +13,13 @@
             <dialog>
                 <form method="dialog">
                     <caption>Add New Book</caption>
-                    <input class="bookTitle" type="text" placeholder="Book" required>
+                    <input class="bookTitle" name="" type="text" placeholder="Book" required>
                     <input class="authorIp" type="text" placeholder="Author" required>
                     <input class="bookPagesIp" type="number" placeholder="Pages" required>
-                    <label for="readUnread">Have You Read The Book?<input type="checkbox" id="readUnread"></label>
+                    <div class="checkStatus">
+                        <label for="readUnread" class="readUnreadLb" >Have You Read The Book?</label>
+                        <input type="checkbox" id="readUnread">
+                    </div>
                     <button class="cancelPopUp">Cancel</button>
                     <button id="submitBtn">Submit</button>
                 </form>
@@ -25,18 +27,11 @@
             <button class="submitButton">Add</button>
         </div>
         <div class="contentBody">
-            <div class="bkCard">
+            <div class="bkCard" data-index='4'>
                 <div class="bookName">"The First Star: Illusion"</div>
-                <div class="authorName">Maruf</div>
-                <div class="pages">223 pages</div>
-                <div class="state">Read</div>
-                <button class="rmBtn">Remove</button>
-            </div>
-            <div class="bkCard">
-                <div class="bookName">"The First Star: Illusion"</div>
-                <div class="authorName">Maruf</div>
-                <div class="pages">223 pages</div>
-                <div class="state">Read</div>
+                <div class="authorName">Lyu Cell</div>
+                <div class="pages">111 pages</div>
+                <button class="state">Read</button>
                 <button class="rmBtn">Remove</button>
             </div>
         </div>
@@ -44,3 +39,4 @@
     </div>
 </body>
 </html>
+

@@ -1,4 +1,4 @@
-let array = [];
+let library = [];
 
 
 function Book(name, author, page, state) {
@@ -6,9 +6,6 @@ function Book(name, author, page, state) {
     this.author = author;
     this.page = page;
     this.state = state;
-    this.logInfo = function () {
-        return `${this.name}, by ${this.author}, ${this.page} pages, ${this.state}`
-    }
 };
 
 
@@ -39,30 +36,46 @@ function makeCd () {
     const pages = document.createElement("div");
     const state = document.createElement("div");
     const rmBtn = document.createElement("button");
+ //   let indexObj = null;
+
     
+
     bkcard.classList.add("bkCard")
     contentBody.appendChild(bkcard)
     bkName.classList.add("bookName");
-    bkName.textContent = array[array.length - 1].name;
+    bkName.textContent = library[library.length - 1].name;
     bkcard.appendChild(bkName);
     authorName.classList.add("authorName");
-    authorName.textContent = array[array.length -1].author;
+    authorName.textContent = library[library.length -1].author;
     bkcard.appendChild(authorName);
     pages.classList.add("pages");
-    pages.textContent = array[array.length -1].page;
+    pages.textContent = library[library.length -1].page;
     bkcard.appendChild(pages);
     state.classList.add("state");
-    state.textContent = array[array.length - 1].state;
+    state.textContent = library[library.length - 1].state;
     bkcard.appendChild(state);
     rmBtn.classList.add("rmBtn");
     rmBtn.textContent = "Remove";
+    
+
+
     bkcard.appendChild(rmBtn);
+
+    rmBtn.addEventListener("click", () => {
+ 
+        function findElObj() {
+            for(let i = 0; i < library.length; i++) {
+                if (library[i].name === toString(bkName.textContent)) {
     
-    
+                } return i;
+            }; 
+        } 
+        library.splice(findElObj(), 1)
+        contentBody.removeChild(bkcard)
+        
+    })
 }
 
-// This function uses the values of form inputs to initialize the book object and pushes it to array
-// while calling makeCd() function which create a card elements based on the book object injected into the array 
 
 function addArray () {
     function checkedUnchecked () {
@@ -71,7 +84,7 @@ function addArray () {
     }
     
     const book = new Book(bookTitleIp.value, authorNameIp.value, bookPagesIp.value + " pages", checkedUnchecked());
-    array.push(book)
+    library.push(book)
 
     makeCd()
 };
@@ -106,4 +119,12 @@ cancelPopUp.addEventListener("click", () => {
     bookTitleIp.value = "";
     authorNameIp.value = "";
     dialog.close()
+})
+
+// removing the default book card
+const contentBody = document.querySelector(".contentBody")
+const bkCard = document.querySelector(".bkCard")
+const rmBtn  = document.querySelector('.rmBtn');
+rmBtn.addEventListener("click", () => {
+    contentBody.removeChild(bkCard)
 })
