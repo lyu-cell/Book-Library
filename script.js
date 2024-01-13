@@ -18,11 +18,24 @@ const authorNameIp = document.querySelector(".authorIp")
 const bookPagesIp = document.querySelector(".bookPagesIp")
 const readUnreadIp = document.querySelector("#readUnread")
 
+function checkArt() {
+    if (bookTitleIp.hasAttribute("required") === false) {
+        
+        bookPagesIp.required = true
+        bookTitleIp.required = true
+        authorNameIp.required = true      
+    }
+}
+
 showDialogBtn.addEventListener("click", () => {
+    checkArt()
     dialog.showModal();
     if (readUnreadIp.checked = true) {
         readUnreadIp.checked = false;
     }
+
+    
+   
 })
 
 
@@ -134,7 +147,6 @@ function clearIp() {
     bookPagesIp.value = "";
     bookTitleIp.value = "";
     authorNameIp.value = "";
-    
     dialog.close()
     
 }
@@ -145,9 +157,12 @@ function clearIp() {
 SubmitBtn.addEventListener("click", () => {;
     if (bookPagesIp.value !== "" && bookTitleIp.value !== "" && authorNameIp.value !== "")  {
         clearIp()
-        bookPagesIp.removeAttribute("required")
-        authorNameIp.removeAttribute("required")
-        bookTitleIp.removeAttribute("required")
+        if (bookTitleIp.hasAttribute("required") === true) {
+        
+            bookPagesIp.removeAttribute("required")
+            authorNameIp.removeAttribute("required")
+            bookTitleIp.removeAttribute("required")
+        }
     } ;
 })
 
@@ -159,9 +174,12 @@ cancelPopUp.addEventListener("click", () => {
     bookTitleIp.value = "";
     authorNameIp.value = "";
     
-    bookPagesIp.removeAttribute("required")
-    authorNameIp.removeAttribute("required")
-    bookTitleIp.removeAttribute("required")
+    if (bookTitleIp.hasAttribute("required") === true) {
+        
+        bookPagesIp.removeAttribute("required")
+        authorNameIp.removeAttribute("required")
+        bookTitleIp.removeAttribute("required")
+    }
     dialog.close()
 })
 
