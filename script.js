@@ -10,7 +10,7 @@ function Book(name, author, page, state) {
 
 
 
-const showDialogBtn = document.querySelector(".submitButton");
+const showDialogBtn = document.querySelector(".showForm");
 const SubmitBtn = document.querySelector("#submitBtn")
 const dialog = document.querySelector("dialog")
 const bookTitleIp = document.querySelector(".bookTitle")
@@ -19,7 +19,10 @@ const bookPagesIp = document.querySelector(".bookPagesIp")
 const readUnreadIp = document.querySelector("#readUnread")
 
 showDialogBtn.addEventListener("click", () => {
-    dialog.showModal()
+    dialog.showModal();
+    if (readUnreadIp.checked = true) {
+        readUnreadIp.checked = false;
+    }
 })
 
 
@@ -74,7 +77,15 @@ function makeCd () {
         contentBody.removeChild(bkcard)
     })
 
+    if (state.textContent === "Unread") {
+        state.style.cssText = "background-color: red;"
+    }
+    else if (state.textContent === "Read") {
+        state.style.cssText = "background-color: rgb(109, 204, 109);"  
+    } 
+
     state.addEventListener("click", () => {
+
         if (state.textContent === "Read") {
             state.textContent = "Unread";
             state.style.cssText = "background-color: red;";
@@ -123,6 +134,7 @@ function clearIp() {
     bookPagesIp.value = "";
     bookTitleIp.value = "";
     authorNameIp.value = "";
+    
     dialog.close()
     
 }
@@ -130,17 +142,26 @@ function clearIp() {
 // when the submit button is clicked the if else statements makes sure that the required input has been entered and 
 // then closes the pop up using the dialog.close() in clearIp() method
 
-SubmitBtn.addEventListener("click", (event) => {
-    if (bookPagesIp.value === "" && bookTitleIp.value === "" && authorNameIp.value === "") return event.preventDefault()
-    else if (bookPagesIp.value !== "" && bookTitleIp.value !== "" && authorNameIp.value !== "") return clearIp();
+SubmitBtn.addEventListener("click", () => {;
+    if (bookPagesIp.value !== "" && bookTitleIp.value !== "" && authorNameIp.value !== "")  {
+        clearIp()
+        bookPagesIp.removeAttribute("required")
+        authorNameIp.removeAttribute("required")
+        bookTitleIp.removeAttribute("required")
+    } ;
 })
 
 const cancelPopUp = document.querySelector(".cancelPopUp");
+
 
 cancelPopUp.addEventListener("click", () => {
     bookPagesIp.value = "";
     bookTitleIp.value = "";
     authorNameIp.value = "";
+    
+    bookPagesIp.removeAttribute("required")
+    authorNameIp.removeAttribute("required")
+    bookTitleIp.removeAttribute("required")
     dialog.close()
 })
 
@@ -154,10 +175,19 @@ rmBtn.addEventListener("click", () => {
 
 const state = document.querySelector(".state");
 
+if (state.textContent === "Unread") {
+    state.style.cssText = "background-color: red;";
+} 
+
+else if (state.textContent === "Read") {
+    state.style.cssText = "background-color: rgb(109, 204, 109);";
+} 
+
+
 state.addEventListener("click", () => {
     if (state.textContent === "Read") {
         state.textContent = "Unread";
-        state.style.cssText = "background-color: red;";
+        state.style.cssText = "background-color: red;"
     }
     else if (state.textContent === "Unread") {
         state.textContent = "Read";

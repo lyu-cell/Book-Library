@@ -38,7 +38,7 @@ body, html{
     background-color: #f1f5f9;
 }
 
-.submitButton {
+.showForm {
     border: 1px solid #f1f5f9;
     background-color: #f1f5f9;
     width: 150px;
@@ -47,7 +47,7 @@ body, html{
     font-weight: bolder;
 }
 
-.submitButton:hover {
+.showForm:hover {
     background-color: rgb(214, 214, 214);
 }
 
@@ -90,7 +90,6 @@ body, html{
 .state {
     display: flex;
     grid-column: 1 / 5;
-    background-color: rgb(109, 204, 109);
     color: black;
     width: 99.8.5%;
     border: 1px solid gray;
@@ -98,6 +97,8 @@ body, html{
     justify-content: center;
     align-items: center;   
 }
+
+
 
 .rmBtn {
     grid-column: 1 / 5;
