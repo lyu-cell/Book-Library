@@ -1,13 +1,16 @@
 let library = [];
 
 
-function Book(name, author, page, state) {
-    this.name = name;
-    this.author = author;
-    this.page = page;
-    this.state = state;
-};
+class Book {
 
+    constructor(name, author, page, state) {
+        
+        this.name = name;
+        this.author = author;
+        this.page = page;
+        this.state = state;
+    }
+}
 
 
 const showDialogBtn = document.querySelector(".showForm");
@@ -135,7 +138,6 @@ function addArray () {
 
     makeCd()
 };
-
 
 
 // calls on the addArray function to create and add book object to the array and use that to create the card elements
